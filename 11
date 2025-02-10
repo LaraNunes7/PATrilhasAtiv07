@@ -1,0 +1,34 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] lojas = { "Loja A", "Loja B", "Loja C", "Loja D", "Loja E", "Loja F", "Loja G", "Loja H" };
+        string[] produtos = { "Produto 1", "Produto 2", "Produto 3", "Produto 4" };
+        double[,] precos = new double[8, 4];
+        Random rand = new Random();
+
+        // Preenchendo a matriz de preços com valores aleatórios
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                precos[i, j] = rand.Next(50, 200);
+            }
+        }
+
+        // Exibindo relações onde o preço não ultrapassa R$ 120,00
+        Console.WriteLine("Relações (Produto - Loja - Preço) com preço <= R$ 120,00:");
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (precos[i, j] <= 120)
+                {
+                    Console.WriteLine($"{produtos[j]} - {lojas[i]} - R$ {precos[i, j]:F2}");
+                }
+            }
+        }
+    }
+}
