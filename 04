@@ -1,0 +1,33 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] matriz = new int[10, 10];
+        Random rand = new Random();
+
+        // Preenchendo a matriz com valores aleatórios
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                matriz[i, j] = rand.Next(1, 100);
+            }
+        }
+
+        // Exibindo elementos exceto a diagonal principal
+        Console.WriteLine("Elementos exceto a diagonal principal:");
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                if (i != j)
+                {
+                    Console.Write(matriz[i, j] + " ");
+                }
+            }
+            Console.WriteLine();
+        }
+    }
+}
